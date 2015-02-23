@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewBag.Title = "Chat";
+}
+
+<div ng-controller="chatController">
+    <h2>Chat</h2>
+    <span ng-model="hitCount">{{hitCount}}</span>people joined. 
+    <div class="row">
+        <div class="col-sm-6">
+            Name:
+            <input type="text" ng-model="name" ng-disabled="isName" />
+            <input type="button" value="Set Name" class="btn btn-primary" 
+                   ng-click="setName()" ng-hide="isName" />
+        </div>
+        <div class="col-sm-6">
+            Room:
+            <input type="text" ng-model="room" ng-disabled="isRoom" />
+            <input type="button" value="Enter" class="btn btn-primary"
+                   ng-click="joinRoom()" ng-hide="isRoom" />
+            <input type="button" value="Exit" class="btn btn-primary"
+                   ng-click="leaveRoom()" ng-show="isRoom" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            Message:
+            <input type="text" ng-model="message" ng-show="isName" />
+            <input type="button" value="Send" class="btn btn-primary" 
+                   ng-show="isName" ng-click="sendMessage()" />
+            <hr />
+            <div ng-repeat="m in messages">{{m.message}}</div> 
+        </div>
+    </div>
+</div>
+
