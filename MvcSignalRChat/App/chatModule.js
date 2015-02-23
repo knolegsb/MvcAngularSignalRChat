@@ -2,7 +2,7 @@
 
     angular.module('chatModule', []);
 
-    // 페이지 로드
+    // page load
     $(function () {
 
         $.connection.hub.logging = true;
@@ -10,12 +10,12 @@
 
     });
 
-    // 예외 처리 코드 구현
+    // error handling
     $.connection.hub.error(function (err) {
-        console.log("에러 발생: " + err);
+        console.log("Error occured: " + err);
     });
 
-    // Angular 컨트롤러에 SignalR Chat 코드 주입
+    // Angular controller SignalR Chat code injection
     angular.module("chatModule")
         .value("chat", $.connection.chat)
         .value("toastr", toastr);
